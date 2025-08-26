@@ -20,14 +20,14 @@
             <div>
               <h1
                 class="text-4xl font-bold bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent mb-3">
-                AI Safety Monitor
+                AI 安全监控系统
               </h1>
-              <p class="text-white/80 text-lg font-light">Real-time helmet detection powered by YOLOv11 neural networks
+              <p class="text-white/80 text-lg font-light">基于 YOLOv11 神经网络的实时安全帽检测
               </p>
             </div>
             <div class="hidden md:flex items-center space-x-4">
               <div class="w-3 h-3 bg-green-400 rounded-full animate-ping"></div>
-              <span class="text-white/90 font-medium">System Online</span>
+              <span class="text-white/90 font-medium">系统在线</span>
             </div>
           </div>
         </div>
@@ -47,13 +47,13 @@
               <div class="flex items-center justify-between mb-6">
                 <h2 class="text-xl font-semibold text-white flex items-center">
                   <div class="w-2 h-2 bg-cyan-400 rounded-full mr-3 animate-pulse"></div>
-                  Control Center
+                  控制中心
                 </h2>
                 <div class="flex items-center space-x-2 text-white/70">
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
-                  <span class="text-sm">Active</span>
+                  <span class="text-sm">运行中</span>
                 </div>
               </div>
 
@@ -70,7 +70,7 @@
                         d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z">
                       </path>
                     </svg>
-                    <span class="text-sm font-medium">{{ permissionRequested ? 'Authorized' : 'Camera Access' }}</span>
+                    <span class="text-sm font-medium">{{ permissionRequested ? '已授权' : '摄像头授权' }}</span>
                   </div>
                 </button>
 
@@ -84,7 +84,7 @@
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2 6a2 2 0 012-2h6l2 2h6a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
                     </svg>
-                    <span class="text-sm font-medium">{{ allCamerasActive ? 'Stop All' : 'Start All' }}</span>
+                    <span class="text-sm font-medium">{{ allCamerasActive ? '全部停止' : '全部开始' }}</span>
                   </div>
                 </button>
 
@@ -100,7 +100,7 @@
                         d="M4 2a2 2 0 00-2 2v11a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z">
                       </path>
                     </svg>
-                    <span class="text-sm font-medium">{{ renderMode === 'canvas' ? 'Video Mode' : 'Canvas Mode'
+                    <span class="text-sm font-medium">{{ renderMode === 'canvas' ? '视频模式' : '画布模式'
                       }}</span>
                   </div>
                 </button>
@@ -116,7 +116,7 @@
                         d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z">
                       </path>
                     </svg>
-                    <span class="text-sm font-medium">Export CSV</span>
+                    <span class="text-sm font-medium">导出CSV</span>
                   </div>
                 </button>
 
@@ -131,7 +131,7 @@
                         d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1z">
                       </path>
                     </svg>
-                    <span class="text-sm font-medium">Reset</span>
+                    <span class="text-sm font-medium">重置</span>
                   </div>
                 </button>
               </div>
@@ -145,10 +145,10 @@
               <div class="flex items-center justify-between mb-6">
                 <h2 class="text-xl font-semibold text-white flex items-center">
                   <div class="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
-                  Camera Network
+                  摄像头网络
                 </h2>
                 <div class="flex items-center space-x-4 text-white/70">
-                  <span class="text-sm">{{cameras.filter(c => c.active).length}} / {{ cameras.length }} Active</span>
+                  <span class="text-sm">{{cameras.filter(c => c.active).length}} / {{ cameras.length }} 在线</span>
                 </div>
               </div>
 
@@ -160,7 +160,7 @@
                   <!-- Camera Label -->
                   <div class="absolute top-3 left-3 z-10">
                     <div class="backdrop-blur-md bg-black/30 rounded-lg px-3 py-1 border border-white/20">
-                      <span class="text-white text-sm font-medium">{{ camera.label || `Camera #${camera.id}` }}</span>
+                      <span class="text-white text-sm font-medium">{{ camera.label || `摄像头 #${camera.id}` }}</span>
                     </div>
                   </div>
 
@@ -169,7 +169,7 @@
                     <div class="flex items-center space-x-2">
                       <div class="w-2 h-2 rounded-full"
                         :class="camera.active ? 'bg-green-400 animate-pulse' : 'bg-gray-400'"></div>
-                      <span class="text-white/80 text-xs">{{ camera.active ? 'LIVE' : 'OFF' }}</span>
+                      <span class="text-white/80 text-xs">{{ camera.active ? '在线' : '离线' }}</span>
                     </div>
                   </div>
 
@@ -191,7 +191,7 @@
                           d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z">
                         </path>
                       </svg>
-                      <p class="text-sm font-light">Camera Offline</p>
+                      <p class="text-sm font-light">摄像头离线</p>
                     </div>
                   </div>
 
@@ -201,7 +201,7 @@
                       class="backdrop-blur-md border border-white/30 rounded-lg px-3 py-1 text-xs font-medium transition-all duration-300 hover:scale-110"
                       :class="camera.active ? 'bg-red-500/20 text-red-200 hover:bg-red-500/30' : 'bg-green-500/20 text-green-200 hover:bg-green-500/30'"
                       :disabled="!permissionRequested">
-                      {{ camera.active ? 'Stop' : 'Start' }}
+                      {{ camera.active ? '停止' : '开始' }}
                     </button>
                   </div>
 
@@ -220,7 +220,7 @@
               class="backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-6 hover:bg-white/15 transition-all duration-300">
               <h2 class="text-xl font-semibold text-white mb-6 flex items-center">
                 <div class="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse"></div>
-                Real-time Analytics
+                实时分析
               </h2>
 
               <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
@@ -229,7 +229,7 @@
                   <div class="absolute top-0 right-0 w-16 h-16 bg-blue-400/10 rounded-full -mr-8 -mt-8"></div>
                   <div class="relative">
                     <div class="text-3xl font-bold text-white mb-2">{{ stats.onlinePeople }}</div>
-                    <div class="text-blue-200 text-sm font-medium">Personnel Online</div>
+                    <div class="text-blue-200 text-sm font-medium">在线人员</div>
                   </div>
                 </div>
 
@@ -238,7 +238,7 @@
                   <div class="absolute top-0 right-0 w-16 h-16 bg-green-400/10 rounded-full -mr-8 -mt-8"></div>
                   <div class="relative">
                     <div class="text-3xl font-bold text-white mb-2">{{ stats.withHelmet }}</div>
-                    <div class="text-green-200 text-sm font-medium">With Helmet</div>
+                    <div class="text-green-200 text-sm font-medium">佩戴安全帽</div>
                   </div>
                 </div>
 
@@ -247,7 +247,7 @@
                   <div class="absolute top-0 right-0 w-16 h-16 bg-red-400/10 rounded-full -mr-8 -mt-8"></div>
                   <div class="relative">
                     <div class="text-3xl font-bold text-white mb-2">{{ stats.withoutHelmet }}</div>
-                    <div class="text-red-200 text-sm font-medium">Without Helmet</div>
+                    <div class="text-red-200 text-sm font-medium">未戴安全帽</div>
                   </div>
                 </div>
 
@@ -262,7 +262,7 @@
                     }">
                       {{ stats.complianceRate }}%
                     </div>
-                    <div class="text-amber-200 text-sm font-medium">Compliance Rate</div>
+                    <div class="text-amber-200 text-sm font-medium">合规率</div>
                   </div>
                 </div>
               </div>
@@ -280,7 +280,7 @@
               <div class="flex items-center justify-between mb-6">
                 <h3 class="text-lg font-semibold text-white flex items-center">
                   <div class="w-2 h-2 bg-red-400 rounded-full mr-3 animate-ping"></div>
-                  Live Alerts
+                  实时警报
                 </h3>
                 <div
                   class="w-6 h-6 rounded-full bg-red-500/20 border border-red-400/30 flex items-center justify-center">
@@ -321,7 +321,7 @@
               class="backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-6 hover:bg-white/15 transition-all duration-300">
               <h3 class="text-lg font-semibold text-white mb-6 flex items-center">
                 <div class="w-2 h-2 bg-purple-400 rounded-full mr-3 animate-pulse"></div>
-                Quick Actions
+                快捷操作
               </h3>
 
               <div class="space-y-3">
@@ -335,7 +335,7 @@
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2 6a2 2 0 012-2h6l2 2h6a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
                     </svg>
-                    <span class="font-medium">{{ allCamerasActive ? 'Stop All Cameras' : 'Start All Cameras' }}</span>
+                    <span class="font-medium">{{ allCamerasActive ? '停止所有摄像头' : '启动所有摄像头' }}</span>
                   </div>
                 </button>
 
@@ -350,7 +350,7 @@
                         d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z">
                       </path>
                     </svg>
-                    <span class="font-medium">Export Alert Report</span>
+                    <span class="font-medium">导出警报报告</span>
                   </div>
                 </button>
 
@@ -365,7 +365,7 @@
                         d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1z">
                       </path>
                     </svg>
-                    <span class="font-medium">Clear All Alerts</span>
+                    <span class="font-medium">清除所有警报</span>
                   </div>
                 </button>
               </div>
@@ -392,7 +392,7 @@
         <!-- Camera Label -->
         <div class="absolute top-6 left-6 z-20">
           <div class="backdrop-blur-md bg-black/30 border border-white/20 text-white px-4 py-2 rounded-xl">
-            <span class="text-lg font-semibold">{{ selectedCamera.label || `Camera #${selectedCamera.id}` }}</span>
+            <span class="text-lg font-semibold">{{ selectedCamera.label || `摄像头 #${selectedCamera.id}` }}</span>
           </div>
         </div>
 
@@ -415,7 +415,7 @@
               <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z">
               </path>
             </svg>
-            <p class="text-xl font-light">Camera is offline or no video stream available</p>
+            <p class="text-xl font-light">摄像头离线或无视频流</p>
           </div>
         </div>
       </div>
